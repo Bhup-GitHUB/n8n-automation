@@ -4,13 +4,33 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bcrypt": "^6.0.0",
+    "@types/bun": "^1.2.22",
+    "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.3",
-    "hono": "^4.9.7"
+    "@prisma/client": "^6.16.2",
+    "bcrypt": "^6.0.0",
+    "bullmq": "^5.58.5",
+    "cors": "^2.8.5",
+    "hono": "^4.9.7",
+    "ioredis": "^5.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^6.16.2",
+    "zod": "^4.1.9"
+  },
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist",
+    "start": "bun run dist/index.js",
+    "db:generate": "bunx prisma generate",
+    "db:push": "bunx prisma db push",
+    "db:migrate": "bunx prisma migrate dev",
+    "db:studio": "bunx prisma studio"
   }
 }
