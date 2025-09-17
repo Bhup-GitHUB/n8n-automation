@@ -1,0 +1,16 @@
+{
+  "name": "n8n-automation",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.3",
+    "hono": "^4.9.7"
+  }
+}
