@@ -86,7 +86,8 @@ router.get('/webhook/:workflowId', authMiddleware, async (req, res) => {
   }
 })
 
-router.all('/webhook/*', async (req, res) => {
+// Handle webhook triggers with any UUID
+router.all('/webhook/:uuid', async (req, res) => {
   try {
     const webhookPath = req.path
     const method = req.method

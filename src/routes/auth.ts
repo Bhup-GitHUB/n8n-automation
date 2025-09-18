@@ -15,8 +15,7 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
-        //@ts-ignore
-        errors: validationResult.error.errors.map(err => ({
+        errors: validationResult.error.issues.map(err => ({
           field: err.path.join('.'),
           message: err.message
         }))
@@ -52,8 +51,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
-        //@ts-ignore
-        errors: validationResult.error.errors.map(err => ({
+        errors: validationResult.error.issues.map(err => ({
           field: err.path.join('.'),
           message: err.message
         }))

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { CreateWorkflowSchema, UpdateWorkflowSchema } from '../types'
 import { authMiddleware } from '@/middlewares/auth'
-import { WorkflowService } from '@/services/workfolow'
+import { WorkflowService } from '@/services/workflow'
 
 const router = Router()
 

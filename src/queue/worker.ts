@@ -6,6 +6,9 @@ import type { WorkflowExecutionJob } from '../lib/queue'
 
 
 const connection = new Redis(process.env.REDIS_URL || 'redis://localhost:6379', {
+  maxRetriesPerRequest: null,
+  retryDelayOnFailover: 100,
+  enableReadyCheck: false,
   retryStrategy(times) {
     const delay = Math.min(times * 50, 2000); 
     return delay;

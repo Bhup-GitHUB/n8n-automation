@@ -119,7 +119,7 @@ model Credential {
 enum NodeType {
   TRIGGER   
   ACTION    
-  CONDITIO
+  CONDITION
 }
 
 enum HttpMethod {

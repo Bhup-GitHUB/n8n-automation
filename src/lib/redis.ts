@@ -1,5 +1,4 @@
 import Redis from 'ioredis'
-//@ts-ignore
 const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379', {
   retryDelayOnFailover: 100,
   enableReadyCheck: false,

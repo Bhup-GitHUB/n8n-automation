@@ -21,12 +21,10 @@ export class WorkflowService {
           tx.node.create({
             data: {
               workflowId: newWorkflow.id,
-              //@ts-ignore
-              type: node.type,
+              type: node.type as 'TRIGGER' | 'ACTION' | 'CONDITION',
               name: node.name,
               position: node.position,
-              //@ts-ignore
-              config: node.config
+              config: node.config as Record<string, any>
             }
           })
         )
@@ -220,15 +218,13 @@ export class WorkflowService {
 
     const duplicateData: CreateWorkflowInput = {
       title: `${originalWorkflow.title} (Copy)`,
-      //@ts-ignore
-      description: originalWorkflow.description,
+      description: originalWorkflow.description || undefined,
       enabled: false,
-      //@ts-ignore
       nodes: originalWorkflow.nodes.map(node => ({
-        type: node.type,
+        type: node.type as 'TRIGGER' | 'ACTION' | 'CONDITION',
         name: node.name,
         position: node.position as { x: number; y: number },
-        config: node.config
+        config: node.config as Record<string, any>
       })),
       connections: originalWorkflow.connections.map(conn => ({
         sourceId: conn.sourceId,
